@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Second Stopwatch by Orlin</title>
+</head>
+<body>
+    <h3 id="waktu">0</h3>
+
+    <button onclick="mulai()">Start</button>
+    <button onclick="berhenti()">Stop</button>
+    <button onclick="reset()">Reset</button>
+
+    <script>
+        let detik = 0;
+        let interval = null;
+
+        function mulai() {
+            if (interval === null) {
+                interval = setInterval(function() {
+                    detik++;
+                    document.getElementById("waktu").textContent = detik;
+                }, 1000);
+            }
+        }
+
+        function berhenti() {
+            clearInterval(interval);
+            interval = null;
+        }
+
+        function reset() {
+            berhenti();
+            detik = 0;
+            document.getElementById("waktu").textContent = detik;
+        }
+    </script>
+</body>
+</html>
